@@ -1,14 +1,14 @@
 import * as firebase from "firebase/app";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDvw4BZXHUdx3Tnkm48VsFhBBppyJjPDCM",
-  authDomain: "safeheropwa.firebaseapp.com",
-  databaseURL: "https://safeheropwa.firebaseio.com",
-  projectId: "safeheropwa",
-  storageBucket: "safeheropwa.appspot.com",
-  messagingSenderId: "237984994028",
-  appId: "1:237984994028:web:d405d3b632c1401f578bc9",
-  measurementId: "G-1083V3KDNM"
+  apiKey: "AIzaSyDYvpd_lekcGqXEMl6gNN2mMtCng2-JOPg",
+  authDomain: "pwchat-9250c.firebaseapp.com",
+  databaseURL: "https://pwchat-9250c.firebaseio.com",
+  projectId: "pwchat-9250c",
+  storageBucket: "pwchat-9250c.appspot.com",
+  messagingSenderId: "846310791083",
+  appId: "1:846310791083:web:dbacdc221dfd13823da4ee",
+  measurementId: "G-Z2S3EZNSYN"
 };
 
 firebase.initializeFirebase = () => {
