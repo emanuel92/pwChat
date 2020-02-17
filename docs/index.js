@@ -1,4 +1,40 @@
-import firebase from "firebase";
+import * as firebase from "firebase/app";
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDvw4BZXHUdx3Tnkm48VsFhBBppyJjPDCM",
+  authDomain: "safeheropwa.firebaseapp.com",
+  databaseURL: "https://safeheropwa.firebaseio.com",
+  projectId: "safeheropwa",
+  storageBucket: "safeheropwa.appspot.com",
+  messagingSenderId: "237984994028",
+  appId: "1:237984994028:web:d405d3b632c1401f578bc9",
+  measurementId: "G-1083V3KDNM"
+};
+
+firebase.initializeFirebase = () => {
+  try {
+    firebase.initializeApp(firebaseConfig);
+    askForPermissionToReceiveNotifications();
+  } catch (err) {
+    if (!/already exists/.test(err.message)) {
+      console.error("Firebase initialization error", err.stack);
+    }
+  }
+};
+
+firebase.askForPermissionToReceiveNotifications = async () => {
+  try {
+    const messaging = firebase.messaging();
+
+    await messaging.requestPermission();
+    const token = await messaging.getToken();
+    console.log("user token: ", token);
+
+    return token;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const webSocketConnection =
   "wss://v1n46gbiah.execute-api.eu-west-1.amazonaws.com/dev";
@@ -394,41 +430,3 @@ function switchMobileCamera() {
 
   getLocalWebCamFeed();
 }
-
-var firebaseConfig = {
-  apiKey: "AIzaSyDvw4BZXHUdx3Tnkm48VsFhBBppyJjPDCM",
-  authDomain: "safeheropwa.firebaseapp.com",
-  databaseURL: "https://safeheropwa.firebaseio.com",
-  projectId: "safeheropwa",
-  storageBucket: "safeheropwa.appspot.com",
-  messagingSenderId: "237984994028",
-  appId: "1:237984994028:web:d405d3b632c1401f578bc9",
-  measurementId: "G-1083V3KDNM"
-};
-
-export const initializeFirebase = () => {
-  try {
-    firebase.initializeApp(firebaseConfig);
-    askForPermissionToReceiveNotifications();
-  } catch (err) {
-    if (!/already exists/.test(err.message)) {
-      console.error("Firebase initialization error", err.stack);
-    }
-  }
-};
-
-export const askForPermissionToReceiveNotifications = async () => {
-  try {
-    const messaging = firebase.messaging();
-
-    await messaging.requestPermission();
-    const token = await messaging.getToken();
-    console.log("user token: ", token);
-
-    return token;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-initializeFirebase();
