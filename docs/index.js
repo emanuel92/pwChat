@@ -1,6 +1,19 @@
-import { initializeFirebase } from ".push.js";
+importScripts("https://www.gstatic.com/firebasejs/3.5.2/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js");
 
-initializeFirebase();
+var firebaseConfig = {
+  apiKey: "AIzaSyDYvpd_lekcGqXEMl6gNN2mMtCng2-JOPg",
+  authDomain: "pwchat-9250c.firebaseapp.com",
+  databaseURL: "https://pwchat-9250c.firebaseio.com",
+  projectId: "pwchat-9250c",
+  storageBucket: "pwchat-9250c.appspot.com",
+  messagingSenderId: "846310791083",
+  appId: "1:846310791083:web:dbacdc221dfd13823da4ee",
+  measurementId: "G-Z2S3EZNSYN"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 const webSocketConnection =
   "wss://v1n46gbiah.execute-api.eu-west-1.amazonaws.com/dev";
 const turnServerIPAddress = "52.16.45.235";
