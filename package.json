@@ -1,0 +1,15 @@
+{
+  "name": "pwchat",
+  "version": "1.0.0",
+  "description": "Progressive Web Chat",
+  "main": "docs/index.html",
+  "scripts": {
+    "start": "browser-sync start --server ./docs",
+    "test": "test"
+  },
+  "author": "EW",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}

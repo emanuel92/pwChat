@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WebRTC Video Chat</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
+  <body></body>
+
+  <div class="center">
+    <button id="sendOfferButton" onclick="createAndSendOffer()">Call</button>
+    <button id="answerButton" onclick="createAndSendAnswer()">Answer</button>
+    <button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
+      Hang Up</button
+    ><br /><br />
+
+    <input
+      id="messageInput"
+      type="text"
+      size="80"
+      placeholder="Enter message to send"
+    />
+    <button id="sendMessageButton" onclick="sendMessage()">Send Message</button
+    ><br /><br />
+
+    <p style="text-align: center">Tap to Change Front/Back Camera</p>
+
+    <div id="videoContainer">
+      <video
+        id="localVideo"
+        onclick="switchMobileCamera()"
+        muted
+        autoplay
+        playsinline
+      ></video>
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+    <br /><br />
+
+    <textarea readonly id="chatTextArea"></textarea><br /><br />
+
+    <textarea readonly id="logs"></textarea>
+  </div>
+  <script>
+    //ServiceWorker
+    console.log("registerServiceWorker.js started");
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js", {
+        scope: "/"
+      });
+
+      //navigator.serviceWorker.ready always resolve
+      navigator.serviceWorker.ready.then(function(registration) {
+        console.log(
+          "Service worker successfully registered on scope",
+          registration.scope
+        );
+      });
+    }
+  </script>
+  <script src="index.js" type="text/javascript"></script>
+</html>
