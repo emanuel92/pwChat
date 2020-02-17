@@ -15,12 +15,12 @@ const precacheToken = "1.0.0";
 
 workbox.precaching.precacheAndRoute(
   [
-    { url: "/", revision: precacheToken },
-    { url: "/index.html", revision: precacheToken },
-    { url: "/index.js", revision: precacheToken },
-    { url: "/style.css", revision: precacheToken },
-    { url: "/favicon.ico", revision: precacheToken },
-    { url: "/manifest.webmanifest", revision: precacheToken }
+    { url: "/pwChat/", revision: precacheToken },
+    { url: "/pwChat/index.html", revision: precacheToken },
+    { url: "/pwChat/index.js", revision: precacheToken },
+    { url: "/pwChat/style.css", revision: precacheToken },
+    { url: "/pwChat/favicon.ico", revision: precacheToken },
+    { url: "/pwChat/manifest.webmanifest", revision: precacheToken }
   ],
   {
     cleanUrls: false
