@@ -1,5 +1,5 @@
 const webSocketConnection =
-  "wss://v1n46gbiah.execute-api.eu-west-1.amazonaws.com/dev";
+  "wss://siaa3vj00g.execute-api.eu-west-1.amazonaws.com/prod";
 const turnServerIPAddress = "52.16.45.235";
 const turnServerPort = "3478";
 const turnServerUserName = "User2";
