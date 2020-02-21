@@ -9,59 +9,80 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="manifest" href="manifest.webmanifest" />
   </head>
-  <body></body>
-
-  <div class="center">
-    <button id="sendOfferButton" onclick="createAndSendOffer()">Call</button>
-    <button id="answerButton" onclick="createAndSendAnswer()">Answer</button>
-    <button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
-      Hang Up</button
-    ><br /><br />
-
-    <input
-      id="messageInput"
-      type="text"
-      size="80"
-      placeholder="Enter message to send"
-    />
-    <button id="sendMessageButton" onclick="sendMessage()">Send Message</button
-    ><br /><br />
-
-    <p style="text-align: center">Tap to Change Front/Back Camera</p>
-
-    <div id="videoContainer">
-      <video
-        id="localVideo"
-        onclick="switchMobileCamera()"
-        muted
-        autoplay
-        playsinline
-      ></video>
-      <video id="remoteVideo" autoplay playsinline></video>
+  <body>
+    <div id="networkStatus">
+      Connection Error <br>
+      Sorry, but you are currently offline and can't make a call right now. <br>
+      Waiting for reconnection ...
     </div>
-    <br /><br />
 
-    <textarea readonly id="chatTextArea"></textarea><br /><br />
+    <div class="center">
+      <button id="sendOfferButton" onclick="createAndSendOffer()">Call</button>
+      <button id="answerButton" onclick="createAndSendAnswer()">Answer</button>
+      <button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
+        Hang Up</button
+      ><br /><br />
 
-    <textarea readonly id="logs"></textarea>
-  </div>
-  <script>
-    //ServiceWorker
-    console.log("registerServiceWorker.js started");
+      <input
+        id="messageInput"
+        type="text"
+        size="80"
+        placeholder="Enter message to send"
+      />
+      <button id="sendMessageButton" onclick="sendMessage()">
+        Send Message</button
+      ><br /><br />
 
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js", {
-        scope: "/pwChat/"
+      <p style="text-align: center">Tap to Change Front/Back Camera</p>
+
+      <div id="videoContainer">
+        <video
+          id="localVideo"
+          onclick="switchMobileCamera()"
+          muted
+          autoplay
+          playsinline
+        ></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+      </div>
+      <br /><br />
+
+      <textarea readonly id="chatTextArea"></textarea><br /><br />
+
+      <textarea readonly id="logs"></textarea>
+    </div>
+    <script>
+      //ServiceWorker
+      console.log("registerServiceWorker.js started");
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js", {
+          scope: "/pwChat/"
+        });
+
+        //navigator.serviceWorker.ready always resolve
+        navigator.serviceWorker.ready.then(function(registration) {
+          console.log(
+            "Service worker successfully registered on scope",
+            registration.scope
+          );
+        });
+      }
+
+      let networkStatus = document.getElementById("networkStatus")
+      window.addEventListener("load", () => {
+        function handleNetworkChange(event) {
+          if (navigator.onLine) {
+            networkStatus.classList.remove("offline");
+            connectToWebSocket();
+          } else {
+            networkStatus.classList.add("offline");
+          }
+        }
+        window.addEventListener("online", handleNetworkChange);
+        window.addEventListener("offline", handleNetworkChange);
       });
-
-      //navigator.serviceWorker.ready always resolve
-      navigator.serviceWorker.ready.then(function(registration) {
-        console.log(
-          "Service worker successfully registered on scope",
-          registration.scope
-        );
-      });
-    }
-  </script>
-  <script src="index.js" type="text/javascript"></script>
+    </script>
+    <script src="index.js"></script>
+  </body>
 </html>
