@@ -1,3 +1,18 @@
+#networkStatus {
+  display: none;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: tomato;
+  padding: 20px;
+}
+
+#networkStatus.offline {
+  display: block;
+
+}
+
 #videoContainer {
   display: table;
   margin: 0 auto;
