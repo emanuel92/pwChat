@@ -19,13 +19,16 @@
     </div>
 
     <div class="center">
+      <div class="button_row">
       <button id="sendOfferButton" onclick="createAndSendOffer()">
-        <i class="fas fa-phone-volume"></i>
+        <i class="fas fa-phone-volume"></i><br>
         Call</button>
       <button id="answerButton" onclick="createAndSendAnswer()">Answer</button>
       <button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
-        Hang Up</button
-      ><br /><br />
+        Hang Up</button>
+      </div>
+        
+        <br /><br />
 
       <input
         id="messageInput"

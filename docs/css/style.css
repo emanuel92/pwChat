@@ -43,6 +43,12 @@ textarea {
   padding: 20px;
 }
 
+.button_row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 input,
 button {
   width: 100%;
