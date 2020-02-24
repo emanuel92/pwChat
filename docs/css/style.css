@@ -49,10 +49,21 @@ textarea {
   justify-content: center;
 }
 
+.button_row i {
+  font-size: 200%;
+  padding-bottom: 10px;
+}
+
 input,
 button {
   width: 100%;
   box-sizing: border-box;
+}
+
+button {
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 0 10px 0;
 }
 
 video {
