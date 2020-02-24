@@ -21,6 +21,8 @@ body {
 
 #videoContainer {
   display: table;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
 }
 
@@ -55,7 +57,6 @@ textarea {
 }
 
 .button_row button {
-  font-size: 18px;
   border-radius: 5px;
   margin: 0 10px 0;
 }
@@ -72,6 +73,7 @@ video {
 }
 
 button {
+  font-size: 18px;
   border: 1px solid #000000;
   background-color: #0099ff;
   color: #ffffff;
@@ -87,6 +89,10 @@ button[disabled] {
 
 #answerButton i {
   transform: scaleX(-1);
+}
+
+#sendMessageButton {
+  border-radius: 3px;
 }
 
 #messageInput {
