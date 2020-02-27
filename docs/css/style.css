@@ -77,7 +77,7 @@ header ul li {
 header i {
   font-size: 200%;
   width: 1.25em;
-  height: 1.25em;
+  line-height: 1.25em;
 }
 
 header button {
