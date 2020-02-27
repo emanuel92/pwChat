@@ -71,6 +71,7 @@ header ul {
 
 header ul li {
   width: 30%;
+  text-align: center;
 }
 
 header i {
