@@ -110,6 +110,10 @@ button[disabled] {
   transform: scaleX(-1);
 }
 
+#hangUpButton i {
+  font-size: 140%;
+}
+
 #sendMessageButton {
   border-radius: 3px;
 }
