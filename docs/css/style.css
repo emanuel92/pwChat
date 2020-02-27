@@ -92,19 +92,19 @@ video {
   height: 100%;
 }
 
-button {
+header button {
   font-size: 18px;
-  border: 1px solid #000000;
-  background-color: #0099ff;
+  border: 1px dashed #06a88e;
+  background-color: #06a88e;
   color: #ffffff;
   padding: 0px;
 }
 
-button:disabled,
-button[disabled] {
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+header button:disabled,
+header button[disabled] {
+  border: 1px dashed #06a88e;
+  background-color: #fff;
+  color: #06a88e;
 }
 
 #answerButton i {
@@ -116,7 +116,13 @@ button[disabled] {
 }
 
 #sendMessageButton {
+  font-size: 18px;
+  width: 100%;
   border-radius: 3px;
+  border: 1px solid #00c071;
+  padding: 5px;
+  background: #06a88e;
+  color: #FFF;
 }
 
 #messageInput {
