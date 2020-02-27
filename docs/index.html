@@ -20,16 +20,16 @@
     </div>
 
     <div class="center">
-      <div class="button_row">
+      <header>
       <button id="sendOfferButton" onclick="createAndSendOffer()">
         <i class="fas fa-phone-volume"></i><br>Call</button>
       <button id="answerButton" onclick="createAndSendAnswer()">
         <i class="fas fa-phone-volume"></i><br>Answer</button>
       <button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
         <i class="fas fa-phone-slash"></i><br>Hang Up</button>
-      </div>
+      </header>
         
-        <br /><br />
+      <main>
 
       <input
         id="messageInput"
@@ -58,6 +58,8 @@
       <textarea readonly id="chatTextArea"></textarea><br /><br />
 
       <textarea readonly id="logs"></textarea>
+
+    </main>
     </div>
     <script>
       //ServiceWorker
