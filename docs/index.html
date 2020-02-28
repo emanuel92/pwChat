@@ -33,35 +33,38 @@
         
       <main>
 
-        <div class="bg-circle"></div>
+      <section class="messageBox">
+        <input
+          id="messageInput"
+          type="text"
+          size="80"
+          placeholder="Enter message to send"
+        />
+        <button id="sendMessageButton" onclick="sendMessage()">
+          Send Message</button
+        >
+      </section>
 
-      <input
-        id="messageInput"
-        type="text"
-        size="80"
-        placeholder="Enter message to send"
-      />
-      <button id="sendMessageButton" onclick="sendMessage()">
-        Send Message</button
-      ><br /><br />
+      <section class="contentBox">
+        <p style="text-align: center">Tap to change Front/Back Camera</p>
 
-      <p style="text-align: center">Tap to change Front/Back Camera</p>
+        <div id="videoContainer">
+          <video
+            id="localVideo"
+            onclick="switchMobileCamera()"
+            muted
+            autoplay
+            playsinline
+          ></video>
+          <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+        <br /><br />
 
-      <div id="videoContainer">
-        <video
-          id="localVideo"
-          onclick="switchMobileCamera()"
-          muted
-          autoplay
-          playsinline
-        ></video>
-        <video id="remoteVideo" autoplay playsinline></video>
-      </div>
-      <br /><br />
+        <textarea readonly id="chatTextArea"></textarea><br><br>
 
-      <textarea readonly id="chatTextArea"></textarea><br /><br />
+        <textarea readonly id="logs"></textarea>
 
-      <textarea readonly id="logs"></textarea>
+      </section>
 
     </main>
     </div>
