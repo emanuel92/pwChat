@@ -18,7 +18,8 @@ workbox.precaching.precacheAndRoute(
     { url: "/pwChat/", revision: precacheToken },
     { url: "/pwChat/index.html", revision: precacheToken },
     { url: "/pwChat/index.js", revision: precacheToken },
-    { url: "/pwChat/style.css", revision: precacheToken },
+    { url: "/pwChat/css/style.css", revision: precacheToken },
+    { url: "/pwChat/css/font.css", revision: precacheToken },
     { url: "/pwChat/favicon.ico", revision: precacheToken },
     { url: "/pwChat/manifest.webmanifest", revision: precacheToken }
   ],
