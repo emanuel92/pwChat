@@ -20,16 +20,32 @@
     </div>
 
     <div class="center">
-      <header>
-      <ul>
-        <li><button id="sendOfferButton" onclick="createAndSendOffer()">
-        <i class="fas fa-phone-volume fa-fw"></i></button><br>Call</li>
-        <li><button id="answerButton" onclick="createAndSendAnswer()">
-        <i class="fas fa-phone-volume fa-fw"></i></button><br>Answer</li>
-        <li><button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
-        <i class="fas fa-phone-slash fa-fw"></i></button><br>Hang Up</li>
-      </ul>
-      </header>
+      <header><i class="fas fa-comments"></i> Chat2Me</header>
+
+      <section class="videoBox">
+        <div id="videoContainer">
+          <video
+            id="localVideo"
+            onclick="switchMobileCamera()"
+            muted
+            autoplay
+            playsinline
+          ></video>
+          <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+        <p class="infotxt">Tap to change Front/Back Camera</p>
+      </section>
+
+      <nav>
+        <ul>
+          <li><button id="sendOfferButton" onclick="createAndSendOffer()">
+          <i class="fas fa-phone-volume fa-fw"></i></button><br>Call</li>
+          <li><button id="answerButton" onclick="createAndSendAnswer()">
+          <i class="fas fa-phone-volume fa-fw"></i></button><br>Answer</li>
+          <li><button id="hangUpButton" onclick="disconnectRTCPeerConnection()">
+          <i class="fas fa-phone-slash fa-fw"></i></button><br>Hang Up</li>
+        </ul>
+      </nav>
         
       <main>
 
@@ -41,24 +57,14 @@
           placeholder="Type your message"
         />
         <button id="sendMessageButton" onclick="sendMessage()">Send</button>
+
+        <br><br>
+
+        <textarea readonly id="chatTextArea"></textarea>
+
       </section>
 
-      <section class="contentBox">
-        <p style="text-align:center;">Tap to change Front/Back Camera</p>
-
-        <div id="videoContainer">
-          <video
-            id="localVideo"
-            onclick="switchMobileCamera()"
-            muted
-            autoplay
-            playsinline
-          ></video>
-          <video id="remoteVideo" autoplay playsinline></video>
-        </div>
-        <br /><br />
-
-        <textarea readonly id="chatTextArea"></textarea><br><br>
+      <section class="logBox">
 
         <textarea readonly id="logs"></textarea>
 
