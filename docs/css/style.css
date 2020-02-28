@@ -54,9 +54,35 @@ header {
   padding: 20px;
   color: #FFF;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   background: #06a88e;
+}
+
+header i {
+  width: 1.25em;
+  line-height: 1.25em !important;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(64, 214, 190, 1);
+	transform: scale(1);
+	animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(64, 214, 190, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(64, 214, 190, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(64, 214, 190, 0);
+	}
 }
 
 main {
